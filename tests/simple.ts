@@ -1,4 +1,4 @@
-import { work } from "../src";
+import { work } from "../src/work";
 
 work({
   tmpDir: "/tmp/oe-worker",

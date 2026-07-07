@@ -117,7 +117,7 @@ export class ObjectionEngine extends OGXMLEngine {
           "90",
           "-s",
           "-screen 0 256x192x24",
-          __dirname + "/godot-objection/objection-godot-stable.x86_64",
+          __dirname.split("/").slice(0, -2).join("/") + "/godot-objection/objection-godot-stable.x86_64",
           "--write-movie",
           movieDir,
           "--fixed-fps",
