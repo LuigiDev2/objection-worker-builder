@@ -4,9 +4,11 @@
  ## Requirements
  ### Hard requirements
  - Node.JS, whatever version it's specified on .nvmrc
- ### Soft requirements
  - GNU/Linux OS. Needed to run the repo "as-is". If you want to use another OS you may need to compile [Objection Godot](https://github.com/Meorge/objection-godot
-) yourself
+) yourself and change how Objection Godot is launched
+ - xvfb-run
+ ### Soft requirements
+ - FFMPEG. Needed if you want the worker to output in any other format rather than AVI-MJPEG
 
 ## How-To
 - The usual node+TS dance. `npm install` `npx tsc`
