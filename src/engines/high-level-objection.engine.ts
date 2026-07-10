@@ -90,10 +90,19 @@ export class ObjectionEngine extends OGXMLEngine {
           this.objectionStarted = true;
         }
       }
-      this.dialog(comment.text ?? "", {
-        evidence: comment.evidence,
-        id: userId,
-      });
+      if (comment.evidence && !comment.text?.trim()?.length) {
+        this.newevidence(
+          comment.evidence?.title ?? "meme",
+          comment.evidence?.alt ?? "...",
+          comment.evidence.path,
+        );
+        arguments;
+      } else {
+        this.dialog(comment.text ?? "...", {
+          evidence: comment.evidence?.path,
+          id: userId,
+        });
+      }
     }
 
     for (const [id, char] of users.entries()) {

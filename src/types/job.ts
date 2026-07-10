@@ -5,7 +5,7 @@ export interface User {
 }
 export interface Comments {
   text?: string;
-  evidence?: string;
+  evidence?: { path: string; alt?: string; title?: string };
   user: User;
 }
 
@@ -15,4 +15,3 @@ export interface EngineJob {
   tmpDir: string;
   comments: Comments[];
 }
-
