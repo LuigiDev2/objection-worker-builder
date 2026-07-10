@@ -3,6 +3,7 @@
 
  ## Requirements
  ### Hard requirements
+ - Git-LFS for cloning this repo
  - Node.JS, whatever version it's specified on .nvmrc
  - GNU/Linux OS. Needed to run the repo "as-is". If you want to use another OS you may need to compile [Objection Godot](https://github.com/Meorge/objection-godot
 ) yourself and change how Objection Godot is launched
