@@ -11,7 +11,7 @@ export interface Comments {
 
 // 256 * 192
 export interface EngineJob {
-  forceCodec?: { codec: string; extension: string };
+  forceCodec?: { codec: string; extension: string, volume?: string };
   tmpDir: string;
   comments: Comments[];
 }

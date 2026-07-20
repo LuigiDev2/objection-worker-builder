@@ -13,26 +13,25 @@ export async function work(fullJob: EngineJob) {
         const ffmpeg = new FFmpeg.FFmpeg();
         finalFile = file.replace(
           /\.[^.]+$/,
-          `.${fullJob.forceCodec.extension}`
+          `.${fullJob.forceCodec.extension}`,
         );
-        ffmpeg
-          .addOptions([
-            "-y",
-            "-i",
-            file,
-            "-c:v",
-            fullJob.forceCodec.codec,
-          ])
-          ffmpeg.setOutputFile(finalFile);
-          ffmpeg.run(true);
-          ffmpeg.setOnCloseCallback((code: number, signal: string) => {
-            if (code === 0) {
-              resolve(finalFile);
-            } else {
-              console.error(signal);
-              reject(signal);
-            }
-          });
+        ffmpeg.addOptions(["-y", "-i", file, "-c:v", fullJob.forceCodec.codec]);
+        if (fullJob.forceCodec.volume) {
+          ffmpeg.addOptions([
+            "-filter:a",
+            `volume=${fullJob.forceCodec.volume}`,
+          ]);
+        }
+        ffmpeg.setOutputFile(finalFile);
+        ffmpeg.run(false);
+        ffmpeg.setOnCloseCallback((code: number, signal: string) => {
+          if (code === 0) {
+            resolve(finalFile);
+          } else {
+            console.error(signal);
+            reject(signal);
+          }
+        });
       } catch (e) {
         console.error(e);
         reject(e);
