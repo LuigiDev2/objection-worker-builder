@@ -13,9 +13,12 @@ export async function work(fullJob: EngineJob) {
         const ffmpeg = new FFmpeg.FFmpeg();
         finalFile = file.replace(
           /\.[^.]+$/,
-          `.${fullJob.forceCodec.extension}`,
+          `-transformned.${fullJob.forceCodec.extension}`,
         );
         ffmpeg.addOptions(["-y", "-i", file, "-c:v", fullJob.forceCodec.codec]);
+        if (fullJob.forceCodec.codec.includes("264")) {
+          ffmpeg.addOptions(["-crf", "0"]);
+        }
         if (fullJob.forceCodec.volume) {
           ffmpeg.addOptions([
             "-filter:a",

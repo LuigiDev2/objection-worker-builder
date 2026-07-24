@@ -145,19 +145,4 @@ export class ObjectionEngine extends OGXMLEngine {
       });
     });
   }
-
-  // private showObjection(character: Character) {
-  //   this.stopMusic()
-  //     .bubble("objection")
-  //     .removeBox()
-  //     .removeArrow()
-  //     .removeSegmentTitle()
-  //     .playSound(
-  //       character.objection ??
-  //         "res://ui/exclamations/exclamation_sounds/objection-generic.wav",
-  //     )
-  //     .addWait(1)
-  //     .addPlayTag()
-  //     .startMusic("res://audio/music/pwr/press.mp3");
-  // }
 }
